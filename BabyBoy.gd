@@ -30,5 +30,3 @@ func _physics_process(delta):
 	# Jump
 	elif state == 3 and is_on_floor():
 		velocity.y = -JUMP_SPEED
-
-	move_and_slide(velocity, Vector2(0, -1))
