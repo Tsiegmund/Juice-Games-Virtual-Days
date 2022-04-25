@@ -1,10 +1,16 @@
 extends KinematicBody2D
+
 var timer = Timer.new()
 var rng = RandomNumberGenerator.new()
 var GRAVITY = 30
+
+var ENEMY_HEALTH = 128
+
 var WALK_SPEED = 200
 var JUMP_SPEED = 400
 var velocity = Vector2()
+
+
 func _physics_process(delta):
 	velocity.y = velocity.y + GRAVITY
 	if is_on_floor():
@@ -27,4 +33,6 @@ func _physics_process(delta):
 	if state == 3 and is_on_floor():
 		velocity.y = -JUMP_SPEED
 		timer.set_wait_time(5)
+		
+		
 	move_and_slide(velocity, Vector2(0, -1))
