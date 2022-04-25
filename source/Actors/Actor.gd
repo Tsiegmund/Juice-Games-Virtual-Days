@@ -1,13 +1,47 @@
 extends KinematicBody2D
 class_name Actor
 
+const bulletPath = preload("res://source/Other/MVPProjectile.tscn")
 
-export var speed: = Vector2(300.0, 1000.0)
-var gravity: = 3000.0
+const GRAVITY = 30
+const WALK_SPEED = 200
+const JUMP_SPEED = 900
 
-var velocity: = Vector2.ZERO
+var velocity = Vector2()
 
 
-func _physics_process(delta: float) -> void:
-	velocity.y += gravity * delta
-	velocity = move_and_slide(velocity)
+
+func _physics_process(delta):
+	velocity.y = velocity.y + GRAVITY
+
+	print(velocity.y)
+
+	if Input.is_action_pressed("ui_left"):
+		velocity.x = -WALK_SPEED
+		
+	elif Input.is_action_pressed("ui_right"):
+		velocity.x =  WALK_SPEED
+	
+	elif Input.is_action_pressed("ui_up") and is_on_floor():
+		velocity.y = -JUMP_SPEED
+	
+	elif Input.is_action_just_pressed("shoot"):
+		shoot()
+		
+		$Node2D.look_at(get_global_mouse_position())
+
+	else:
+		velocity.x = 0
+		
+
+
+	
+	move_and_slide(velocity, Vector2(0, -1))
+
+func shoot():
+	var bullet = bulletPath.instance()
+	
+	get_parent().add_child(bullet)
+	bullet.position = $Node2D/Position2D.global_position
+	
+	bullet.velocity = get_global_mouse_position() - bullet.position
