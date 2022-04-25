@@ -19,21 +19,24 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -WALK_SPEED
 		
-	elif Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("ui_right"):
 		velocity.x =  WALK_SPEED
 	
-	elif Input.is_action_pressed("ui_up") and is_on_floor():
+	if Input.is_action_pressed("ui_up") and is_on_floor():
 		velocity.y = -JUMP_SPEED
+	
+	if Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right"):
+		velocity.x = 0
 	
 	elif Input.is_action_just_pressed("shoot"):
 		shoot()
 		
 		$Node2D.look_at(get_global_mouse_position())
+	
 
-	else:
-		velocity.x = 0
+	
 		
-
+	
 
 	
 	move_and_slide(velocity, Vector2(0, -1))
