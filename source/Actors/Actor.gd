@@ -31,7 +31,7 @@ func _physics_process(_delta):
 	if Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right"):
 		velocity.x = 0
 	
-	if Input.is_action_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot"):
 		shoot()
 		
 		$Node2D.look_at(get_global_mouse_position())
