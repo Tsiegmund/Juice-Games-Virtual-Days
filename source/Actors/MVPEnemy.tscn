@@ -18,11 +18,5 @@ scale = Vector2( 1.72917, 1.54167 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 3, -1 )
+position = Vector2( 3, 0 )
 shape = SubResource( 1 )
-
-[node name="Label" type="Label" parent="."]
-margin_left = -12.0
-margin_top = -72.0
-margin_right = 28.0
-margin_bottom = -50.0

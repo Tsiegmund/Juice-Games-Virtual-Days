@@ -23,11 +23,5 @@ current = true
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="Muzzle" type="Position2D" parent="Node2D"]
-position = Vector2( 31, -1 )
-
-[node name="Label" type="Label" parent="."]
-margin_left = -22.0
-margin_top = -61.0
-margin_right = 18.0
-margin_bottom = -47.0
+[node name="Position2D" type="Position2D" parent="Node2D"]
+position = Vector2( 34, 0 )
