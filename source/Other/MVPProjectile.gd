@@ -1,22 +1,17 @@
-extends KinematicBody2D 
+extends RigidBody2D
 
-var velocity = Vector2(0,0)
-var speed = 300
-var maxtime = 2.0
+var projectile_speed = 400
+var life_time = 3
+
 
 func _ready():
-	var timer = Timer.new()
-	timer.wait_time = maxtime
-	timer.autostart = true
-	add_child(timer)
-	timer.connect("timeout", self, "on_timeout")
+	apply_impulse(Vector2(), Vector2(projectile_speed, 0).rotated(rotation))
+	SelfDestruct()
 
-func on_timeout():
-	self.queue_free()
+func SelfDestruct():
+	yield(get_tree().create_timer(life_time), "timeout")
+	queue_free()
 
-func _physics_process(delta):
-	
-	var collision_info = move_and_collide(velocity.normalized() * delta * speed)
-	
-	
-		
+
+func _on_Bullet_body_entered(body):
+	self.hide()

@@ -4,7 +4,11 @@
 [ext_resource path="res://BabyBoy.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
+<<<<<<< Updated upstream
 extents = Vector2( 121.25, 139 )
+=======
+extents = Vector2( 126.5, 138 )
+>>>>>>> Stashed changes
 
 [node name="MVPEnemy" type="KinematicBody2D"]
 position = Vector2( 457, 225 )
@@ -18,5 +22,9 @@ scale = Vector2( 1.2269, 1.14532 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+<<<<<<< Updated upstream
 position = Vector2( 59.25, 52 )
+=======
+position = Vector2( 59.5, 56 )
+>>>>>>> Stashed changes
 shape = SubResource( 1 )
