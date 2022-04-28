@@ -9,14 +9,14 @@ const JUMP_SPEED = 900
 
 var velocity = Vector2()
 
-export (float) var max_health = 100
 
-onready var health = max_health setget _set_health
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity.y = velocity.y + GRAVITY
-
-	print(velocity.y)
+	if velocity.y > 2000:
+		velocity.y = 2000
+	if is_on_floor():
+		velocity.y = 0
 
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -WALK_SPEED
@@ -35,13 +35,6 @@ func _physics_process(delta):
 		
 		$Node2D.look_at(get_global_mouse_position())
 	
-	var label = get_node("Label")
-	label.text = str(health) + "/" + str(max_health)
-	
-		
-	
-
-	
 	move_and_slide(velocity, Vector2(0, -1))
 
 func shoot():
@@ -49,22 +42,6 @@ func shoot():
 	
 	get_parent().add_child(bullet)
 	bullet.position = $Node2D/Position2D.global_position
+	var previous_position = bullet.position
 	
 	bullet.velocity = get_global_mouse_position() - bullet.position
-	
-func damage(amount):
-	_set_health(health - amount)	
-
-	
-func kill():
-	pass
-	
-func _set_health(value):
-	var prev_health = health
-	health = clamp(value, 0, max_health)
-	if health != prev_health:
-		emit_signal("health_updated", health)
-		var label = get_node("Label")
-		label.text = str(health) + "/" + str(max_health)
-		if health == 0:
-			self.queue_free()
