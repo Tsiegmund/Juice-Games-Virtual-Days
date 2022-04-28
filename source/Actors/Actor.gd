@@ -46,6 +46,7 @@ func _physics_process(_delta):
 		
 		$Node2D.look_at(get_global_mouse_position())
 	
+<<<<<<< HEAD
 =======
 	#if Input.is_action_just_pressed("shoot"):
 	#	shoot()
@@ -54,6 +55,14 @@ func _physics_process(_delta):
 	var label = get_node("Label")
 	label.text = str(health) + "/" + str(max_health)
 >>>>>>> Stashed changes
+=======
+
+	
+		
+	
+
+	
+>>>>>>> parent of c1daad1 (created health bars)
 	move_and_slide(velocity, Vector2(0, -1))
 
 func shoot():

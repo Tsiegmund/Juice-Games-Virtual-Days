@@ -22,9 +22,13 @@ scale = Vector2( 1.2269, 1.14532 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 position = Vector2( 59.25, 52 )
 =======
 position = Vector2( 59.5, 56 )
 >>>>>>> Stashed changes
+=======
+position = Vector2( 3, 0 )
+>>>>>>> parent of c1daad1 (created health bars)
 shape = SubResource( 1 )

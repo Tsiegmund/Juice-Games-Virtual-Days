@@ -1,5 +1,8 @@
 extends KinematicBody2D
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of c1daad1 (created health bars)
 var timer = Timer.new()
 var rng = RandomNumberGenerator.new()
 var GRAVITY = 30
@@ -27,6 +30,7 @@ func _physics_process(delta):
 #		velocity.x = -WALK_SPEED
 #		timer.set_wait_time(600)
 	# Left
+<<<<<<< HEAD
 	#if state == 2:
 #		velocity.x = WALK_SPEED
 #		timer.set_wait_time(600)
@@ -36,4 +40,13 @@ func _physics_process(delta):
 #		timer.set_wait_time(5)
 		
 		
+=======
+	if state == 2:
+		velocity.x = WALK_SPEED
+		timer.set_wait_time(600)
+	 # Jump
+	if state == 3 and is_on_floor():
+		velocity.y = -JUMP_SPEED
+		timer.set_wait_time(5)
+>>>>>>> parent of c1daad1 (created health bars)
 	move_and_slide(velocity, Vector2(0, -1))
