@@ -44,10 +44,10 @@ tile_data = PoolIntArray( -458753, 0, 0, -524288, 0, 0, -524287, 0, 0, -524286, 
 [node name="TextureRect" type="TextureRect" parent="."]
 show_behind_parent = true
 light_mask = 0
-margin_left = -762.0
-margin_top = -2449.0
-margin_right = 6194.0
-margin_bottom = 1886.0
+margin_left = -2220.0
+margin_top = -1881.0
+margin_right = 4736.0
+margin_bottom = 2454.0
 texture = ExtResource( 1 )
 expand = true
 
