@@ -1,7 +1,7 @@
 extends KinematicBody2D
 class_name Actor
 
-const bulletPath = preload("res://source/Other/Bullet.tscn")
+const bulletPath = preload("res://source/Other/MVPProjectile.tscn")
 
 const GRAVITY = 30
 const WALK_SPEED = 200

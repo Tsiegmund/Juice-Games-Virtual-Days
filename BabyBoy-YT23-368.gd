@@ -59,8 +59,3 @@ func _set_health(value):
 		label.text = str(health) + "/" + str(max_health)
 		if health == 0:
 			self.queue_free()
-
-func hit():
-	health -= rng.randi_range(2,4)
-	if health <= 0:
-		queue_free()
