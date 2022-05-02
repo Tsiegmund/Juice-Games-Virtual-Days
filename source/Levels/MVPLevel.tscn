@@ -44,15 +44,16 @@ tile_data = PoolIntArray( -458753, 0, 0, -524288, 0, 0, -524287, 0, 0, -524286, 
 [node name="TextureRect" type="TextureRect" parent="."]
 show_behind_parent = true
 light_mask = 0
-margin_left = -2220.0
-margin_top = -1881.0
-margin_right = 4736.0
-margin_bottom = 2454.0
+margin_left = -3153.0
+margin_top = -2167.0
+margin_right = 3803.0
+margin_bottom = 2168.0
 texture = ExtResource( 1 )
 expand = true
 
 [node name="Bob" parent="." instance=ExtResource( 2 )]
 position = Vector2( 119, 367 )
+collision_layer = 64
 
 [node name="MVPEnemy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 934, 439 )

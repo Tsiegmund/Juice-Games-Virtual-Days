@@ -17,6 +17,6 @@ func on_timeout():
 func _physics_process(delta):
 	
 	var collision_info = move_and_collide(velocity.normalized() * delta * speed)
-	
-	
-		
+	print(collision_info)
+	if collision_info != null:
+		self.queue_free()

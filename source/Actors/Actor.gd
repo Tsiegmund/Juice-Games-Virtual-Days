@@ -49,7 +49,7 @@ func shoot():
 	bullet.velocity = get_global_mouse_position() - bullet.position
 
 func damage(amount):
-	_set_health(health - amount)	
+	_set_health(health - amount)
 	
 func kill():
 	pass
