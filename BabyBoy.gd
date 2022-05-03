@@ -4,7 +4,7 @@ var timer = Timer.new()
 var rng = RandomNumberGenerator.new()
 var GRAVITY = 30
 
-export (float) var max_health = 9500
+export (float) var max_health = 100
 onready var health = max_health setget _set_health
 
 signal health_updated(health)
@@ -14,8 +14,15 @@ var WALK_SPEED = 200
 var JUMP_SPEED = 400
 var velocity = Vector2()
 
+func _ready():
+	
+	add_to_group("enemies")
+	
 #MODE_KINEMATIC:
 func _physics_process(delta):
+	
+
+	
 	velocity.y = velocity.y + GRAVITY
 	if is_on_floor():
 		velocity.y = 0
@@ -60,7 +67,8 @@ func _set_health(value):
 		if health == 0:
 			self.queue_free()
 
-func hit():
+func _on_hit():
+	print("confirmed Hit")
 	health -= rng.randi_range(2,4)
 	if health <= 0:
 		queue_free()
