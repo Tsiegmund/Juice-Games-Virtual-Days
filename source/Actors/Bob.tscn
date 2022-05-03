@@ -24,7 +24,7 @@ current = true
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Position2D" type="Position2D" parent="Node2D"]
-position = Vector2( 66, 0 )
+position = Vector2( -4, 18 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = -19.0
