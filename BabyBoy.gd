@@ -7,10 +7,12 @@ var is_moving_left = true
 
 var gravity = 10
 var velocity = Vector2(0, 0)
-#export (float) var max_health = 100
+export (float) var max_health = 100
 
-#onready var health = max_health setget _set_health
+onready var health = max_health setget _set_health
+onready var invulnerability_timer = $Invulnerability
 
+var prev_health = 100
 var speed = 32
 
 func _ready():
@@ -31,16 +33,19 @@ func detect_turn_around():
 		is_moving_left = !is_moving_left
 		scale.x = -scale.x
 
-#func damage(amount):
-#	_set_health(health - amount)
+func damage(amount):
+	if invulnerability_timer.is_stopped():
+		invulnerability_timer.start()
+	_set_health(health - amount)
+	print("Damage taken!")
 
-#func kill():
-#	pass
+func kill():
+	pass
 	
-#func _set_health(value):
-#	health = clamp(value, 0, max_health)
-#	if health != prev_health:
-#		emit_signal("health_updated", health)
-#	if health == 0:
-#		kill()
-#		emit_signal("killed")
+func _set_health(value):
+	health = clamp(value, 0, max_health)
+	if health != prev_health:
+		emit_signal("health_updated", health)
+	if health == 0:
+		kill()
+		emit_signal("killed")
