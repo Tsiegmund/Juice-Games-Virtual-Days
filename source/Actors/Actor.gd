@@ -12,6 +12,9 @@ var velocity = Vector2()
 export (float) var max_health = 18
 onready var health = max_health setget _set_health
 
+func _ready():
+	add_to_group("player")
+
 func _physics_process(_delta):
 	velocity.y = velocity.y + GRAVITY
 	if velocity.y > 2000:

@@ -1,8 +1,11 @@
 extends KinematicBody2D
 
+const bulletPath = preload("res://source/Other/enemyProjectile.tscn")
+
 var timer = Timer.new()
 var rng = RandomNumberGenerator.new()
 var GRAVITY = 30
+var playerPosition = Vector2.ZERO
 
 export (float) var max_health = 100
 onready var health = max_health setget _set_health
@@ -50,6 +53,18 @@ func _physics_process(delta):
 	
 	move_and_slide(velocity, Vector2(0, -1))
 
+func _on_collision():
+	
+	var playerPosition = get_node("res://source/Actors/Bob.tscn").get_position()
+	print(playerPosition)
+	
+	
+func shoot():
+	var bullet = bulletPath.instance()
+	
+	get_parent().add_child(bullet)
+	bullet.position = $Node2D/Position2D.global_position
+	var previous_position = bullet.position
 
 func damage(amount):
 	_set_health(health - amount)	

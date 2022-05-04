@@ -34,7 +34,7 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
 [node name="Level" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." groups=["world"]]
 tile_set = SubResource( 2 )
 collision_layer = 3
 collision_mask = 3
@@ -44,10 +44,10 @@ tile_data = PoolIntArray( -458753, 0, 0, -524288, 0, 0, -524287, 0, 0, -524286, 
 [node name="TextureRect" type="TextureRect" parent="."]
 show_behind_parent = true
 light_mask = 0
-margin_left = -3141.0
-margin_top = -2181.0
-margin_right = 3815.0
-margin_bottom = 2154.0
+margin_left = -3063.0
+margin_top = -1969.0
+margin_right = 3893.0
+margin_bottom = 2366.0
 texture = ExtResource( 1 )
 expand = true
 
