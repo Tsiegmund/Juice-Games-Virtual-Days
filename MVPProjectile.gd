@@ -11,5 +11,6 @@ func _physics_process(delta):
 
 	if collision_info != null:
 		self.queue_free()
-		print("hit?")
-		get_tree().call_group("enemies", "_on_hit")
+		print(collision_info.collider.name)
+		if collision_info.collider.name == "MVPEnemy":
+			get_tree().call_group("enemies", "_on_hit")
