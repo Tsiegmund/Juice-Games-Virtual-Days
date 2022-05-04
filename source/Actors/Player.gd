@@ -1,5 +1,7 @@
+
 extends Actor
 
+# Setting basic movement for the current MVP player
 func get_input():
 	velocity = Vector2()
 	if Input.is_action_pressed("move_right"):
@@ -19,4 +21,3 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)
-	# velocity = velocity.normalized() * speed
