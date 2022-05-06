@@ -12,7 +12,7 @@ const JUMP_SPEED = 900
 
 var velocity = Vector2()
 
-export (float) var max_health = 18
+export (float) var max_health = 73
 onready var health = max_health setget _set_health
 
 # Setting up the basic physics. 

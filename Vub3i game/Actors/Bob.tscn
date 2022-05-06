@@ -10,12 +10,10 @@ extents = Vector2( 16.5, 30.5 )
 script = ExtResource( 2 )
 
 [node name="Bob" type="Sprite" parent="."]
-position = Vector2( -21.5, 18.5 )
 scale = Vector2( 0.447917, 0.614583 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -23.5, 18.5 )
 shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -24,10 +22,10 @@ current = true
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Position2D" type="Position2D" parent="Node2D"]
-position = Vector2( -4, 18 )
+position = Vector2( 27, -1 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = -19.0
-margin_top = -60.0
-margin_right = 21.0
-margin_bottom = -46.0
+margin_left = -20.0
+margin_top = -45.0
+margin_right = 20.0
+margin_bottom = -31.0

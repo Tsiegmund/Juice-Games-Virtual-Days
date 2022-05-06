@@ -10,13 +10,14 @@ extends KinematicBody2D
 # Signal for the health being updated and the enemy dying
 signal health_updated(health)
 signal killed()
+signal timeout
 
 # Setting the moving_left to true to start the enemy's movement in a direction we want and setting up a random
 # number generator
 var is_moving_left = true
 var rng = RandomNumberGenerator.new()
-
-var timer_max = 3
+var time = 0
+var TIME_PERIOD = 3
 
 # Setting enemy gravity, velocity, and max health
 var gravity = 10
@@ -26,7 +27,6 @@ export (float) var max_health = 64
 # Setting up the health and invulnerability.
 onready var health = max_health setget _set_health
 onready var is_invulnerable = false
-onready var timer = get_node("Timer")
 
 # Previous health method, used for making the label
 # Basic speed stat
@@ -38,13 +38,20 @@ func _ready():
 	add_to_group("enemies")
 	$AnimationPlayer.play("Walk")
 
+
 # Allows BabyBoy to move, turn around, and set up his label.
-func _process(_delta):
+func _process(delta):
 	move_character()
 	detect_turn_around()
 	var label = get_node("Label")
 	label.text = str(health) + "/" + str(max_health)
 	move_and_slide(velocity, Vector2(0, -1))
+	
+	time += delta
+	if time > TIME_PERIOD:
+		emit_signal("timeout")
+		is_invulnerable = false
+		time = 0
 
 # Move left if they are facing left, otherwise make them move right.
 # Adds basic gravity
@@ -56,10 +63,13 @@ func move_character():
 	velocity = move_and_slide(velocity, Vector2.UP)
 # Sets up the turn-around detection
 func detect_turn_around():
-	# If the raycast is not collliding with anything and the enemy is on the floor, change the movement direction.
+	# If the raycast is not collliding with anything (empty space) and the enemy is on the floor, change the movement direction.
 	if not $RayCast2D.is_colliding() and is_on_floor():
 		is_moving_left = !is_moving_left
 		scale.x = -scale.x
+#	if $RayCast2D.is_colliding():
+#		is_moving_left = !is_moving_left
+#		scale.x = -scale.x
 
 # Damage function. When hit, deal the set amount of damage from the total health. If they are invulnerable, do nothing.
 func damage(amount):
@@ -73,9 +83,8 @@ func kill():
 	
 func _on_hit():
 	# When the bullet has hit the enemy, it will choose a random integer between XXX and XXX to deal to the enemy.
+	_process(0)
 	if !is_invulnerable:
-		timer.start()
-		print(timer)
 		health -= rng.randi_range(2,4)
 		is_invulnerable = true
 	else:
