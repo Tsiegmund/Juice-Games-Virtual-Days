@@ -31,7 +31,6 @@ func _ready():
 	add_to_group("enemies")
 	$AnimationPlayer.play("Walk")
 
-
 # Allows BabyBoy to move, turn around, and set up his label.
 func _process(delta):
 	move_character()
@@ -60,9 +59,6 @@ func detect_turn_around():
 	if not $RayCast2D.is_colliding() and is_on_floor():
 		is_moving_left = !is_moving_left
 		scale.x = -scale.x
-#	if $RayCast2D.is_colliding():
-#		is_moving_left = !is_moving_left
-#		scale.x = -scale.x
 
 # Damage function. When hit, deal the set amount of damage from the total health. If they are invulnerable, do nothing.
 func damage(amount):
