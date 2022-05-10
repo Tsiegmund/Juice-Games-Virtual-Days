@@ -1,10 +1,3 @@
-#timer += delta
-#print(timer)
-#if timer > wait_time:
-#	timer = 0
-#	emit_signal("timeout")
-
-
 extends KinematicBody2D
 
 # Signal for the health being updated and the enemy dying
