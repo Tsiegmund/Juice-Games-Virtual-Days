@@ -10,7 +10,7 @@ signal timeout
 var is_moving_left = true
 var rng = RandomNumberGenerator.new()
 var time = 0
-var TIME_PERIOD = 3
+var TIME_PERIOD = 0.5
 
 # Setting enemy gravity, velocity, and max health
 var gravity = 10
