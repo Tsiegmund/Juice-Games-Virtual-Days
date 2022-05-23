@@ -7,8 +7,8 @@ class_name Actor
 const bulletPath = preload("res://Other/Bullet.tscn")
 
 const GRAVITY = 30
-const WALK_SPEED = 200
-const JUMP_SPEED = 200
+const WALK_SPEED = 300
+const JUMP_SPEED = 680
 
 var velocity = Vector2()
 var wing = AudioStreamPlayer.new()
@@ -38,7 +38,7 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("ui_right"):
 		velocity.x =  WALK_SPEED
 	
-	if Input.is_action_pressed("ui_up"):# and is_on_floor():
+	if Input.is_action_pressed("ui_up") and is_on_floor():
 		velocity.y = -JUMP_SPEED
 		wing.stream = load("res://Audio/assets_audio_wing.wav")
 		wing.play(true)
