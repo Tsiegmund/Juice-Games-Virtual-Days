@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HoliznaCC0 - Rising Hero.mp3-87fdd5dab94eb5605c4b118b6e721d0a.mp3str"
+
+[deps]
+
+source_file="res://Audio/Boss/HoliznaCC0 - Rising Hero.mp3"
+dest_files=[ "res://.import/HoliznaCC0 - Rising Hero.mp3-87fdd5dab94eb5605c4b118b6e721d0a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

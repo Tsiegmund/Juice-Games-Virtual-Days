@@ -40,8 +40,6 @@ func _physics_process(_delta):
 	
 	if Input.is_action_pressed("ui_up") and is_on_floor():
 		velocity.y = -JUMP_SPEED
-		wing.stream = load("res://Audio/assets_audio_wing.wav")
-		wing.play(true)
 	
 	# When you release your walking key, stop all your movement. This stops the player from perpetually walking in the 
 	# last direction pressed.

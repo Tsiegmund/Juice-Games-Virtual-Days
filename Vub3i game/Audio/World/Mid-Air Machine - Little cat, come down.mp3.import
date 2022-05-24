@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Mid-Air Machine - Little cat, come down.mp3-f994260a37c5a1bd575ef63192fd168e.mp3str"
+
+[deps]
+
+source_file="res://Audio/World/Mid-Air Machine - Little cat, come down.mp3"
+dest_files=[ "res://.import/Mid-Air Machine - Little cat, come down.mp3-f994260a37c5a1bd575ef63192fd168e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
