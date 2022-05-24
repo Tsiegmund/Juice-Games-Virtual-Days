@@ -101,16 +101,12 @@ func _on_hit():
 
 func _on_Area2D_area_entered(area):
 	print("something is near")
-	var t = Timer.new() 		
-	t.set_wait_time(2) 		
-	add_child(t)
-	t.start()
 	while area.is_in_group("player"):
 		print("enemy can shoot")
 		player = area
 		area.position
 		print(area.position)		
 		print("it's player!!!!!")
-		
-		yield(get_tree().create_timer(2), "timeout")
 		_on_collision()
+		yield(get_tree().create_timer(2), "timeout")
+
