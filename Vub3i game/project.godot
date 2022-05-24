@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Juice Games - Virtual Days"
-run/main_scene="res://Levels/MVPLevel.tscn"
+run/main_scene="res://source/Levels/MVPLevel.tscn"
 config/icon="res://icon.png"
 
 [autoload]
