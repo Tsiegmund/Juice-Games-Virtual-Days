@@ -106,14 +106,11 @@ func _on_Area2D_area_entered(area):
 	add_child(t)
 	t.start()
 	while area.is_in_group("player"):
-		if (t.time_left > 0):
-			print("enemy can shoot")
-			player = area
-			area.position
-			print(area.position)		
-			print("it's player!!!!!")
-			_on_collision()
-			yield(t, "timeout")
-		else:
-			print("enemy cannot shoot yet")
-			break
+		print("enemy can shoot")
+		player = area
+		area.position
+		print(area.position)		
+		print("it's player!!!!!")
+		
+		yield(get_tree().create_timer(2), "timeout")
+		_on_collision()
