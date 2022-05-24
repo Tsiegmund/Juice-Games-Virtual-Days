@@ -6,16 +6,21 @@ const bulletPath = preload("res://source/Other/Bullet.tscn")
 const GRAVITY = 30
 const WALK_SPEED = 200
 const JUMP_SPEED = 900
+var rng = RandomNumberGenerator.new()
+
 
 var velocity = Vector2()
 
 export (float) var max_health = 18
 onready var health = max_health setget _set_health
 
+
 func _ready():
 	add_to_group("player")
+	
 
 func _physics_process(_delta):
+	
 	velocity.y = velocity.y + GRAVITY
 	if velocity.y > 2000:
 		velocity.y = 2000
@@ -28,7 +33,7 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("ui_right"):
 		velocity.x =  WALK_SPEED
 	
-	if Input.is_action_pressed("ui_up") and is_on_floor():
+	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = -JUMP_SPEED
 	
 	if Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right"):
@@ -67,3 +72,9 @@ func _set_health(value):
 		label.text = str(health) + "/" + str(max_health)
 		if health == 0:
 			self.queue_free()
+			
+func _on_hit():
+	print("confirmed Hit")
+	health -= rng.randi_range(2,4)
+	if health <= 0:
+		queue_free()

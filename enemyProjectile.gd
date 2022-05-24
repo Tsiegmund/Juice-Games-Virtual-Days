@@ -14,3 +14,6 @@ func _physics_process(delta):
 		self.queue_free()
 		if collision_info.collider.name == "Bob":
 			get_tree().call_group("player", "_on_hit")
+		if collision_info.collider.name == "MVPEnemy":
+			get_tree().call_group("enemies", "_on_hit")
+			self.queue_free()

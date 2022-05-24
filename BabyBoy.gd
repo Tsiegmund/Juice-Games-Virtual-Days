@@ -2,6 +2,11 @@ extends KinematicBody2D
 
 const bulletPath = preload("res://source/Other/enemyProjectile.tscn")
 
+
+
+var player = null
+
+
 var timer = Timer.new()
 var rng = RandomNumberGenerator.new()
 var GRAVITY = 30
@@ -20,6 +25,7 @@ var velocity = Vector2()
 func _ready():
 	
 	add_to_group("enemies")
+	
 	
 #MODE_KINEMATIC:
 func _physics_process(delta):
@@ -54,17 +60,21 @@ func _physics_process(delta):
 	move_and_slide(velocity, Vector2(0, -1))
 
 func _on_collision():
-	
-	var playerPosition = get_node("res://source/Actors/Bob.tscn").get_position()
+	var playerNodePath = get_parent().get_node("Bob").global_position
+	print(playerNodePath)
+	var playerPosition = playerNodePath
 	print(playerPosition)
+	shoot()
 	
 	
 func shoot():
 	var bullet = bulletPath.instance()
 	
 	get_parent().add_child(bullet)
-	bullet.position = $Node2D/Position2D.global_position
+	bullet.position = $Position2D.global_position
 	var previous_position = bullet.position
+	
+	bullet.velocity = get_parent().get_node("Bob").global_position - bullet.position 
 
 func damage(amount):
 	_set_health(health - amount)	
@@ -87,3 +97,23 @@ func _on_hit():
 	health -= rng.randi_range(2,4)
 	if health <= 0:
 		queue_free()
+
+
+func _on_Area2D_area_entered(area):
+	print("something is near")
+	var t = Timer.new() 		
+	t.set_wait_time(2) 		
+	add_child(t)
+	t.start()
+	while area.is_in_group("player"):
+		if (t.time_left > 0):
+			print("enemy can shoot")
+			player = area
+			area.position
+			print(area.position)		
+			print("it's player!!!!!")
+			_on_collision()
+			yield(t, "timeout")
+		else:
+			print("enemy cannot shoot yet")
+			break

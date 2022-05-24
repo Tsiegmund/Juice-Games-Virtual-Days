@@ -1,6 +1,9 @@
 extends Area2D
 
-func _body_entered(body):
+
+func area_shape_entered(area_shape_index):
 	print("something is near")
-	if body.is_in_group("player"):
+	if area_shape_index.is_in_group("player"):
 		get_tree().call_group("enemies", "_on_collision")
+
+

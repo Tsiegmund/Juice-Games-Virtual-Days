@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://start-assets/Bob-1.png(2).png" type="Texture" id=1]
 [ext_resource path="res://source/Actors/Actor.gd" type="Script" id=2]
@@ -6,7 +6,11 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 33, 45 )
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 110.5, 107 )
+
 [node name="Bob" type="KinematicBody2D" groups=["player"]]
+position = Vector2( 22, 22 )
 script = ExtResource( 2 )
 
 [node name="Bob" type="Sprite" parent="."]
@@ -31,3 +35,9 @@ margin_left = -19.0
 margin_top = -60.0
 margin_right = 21.0
 margin_bottom = -46.0
+
+[node name="PlayerArea" type="Area2D" parent="." groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
+position = Vector2( -2.5, 0 )
+shape = SubResource( 2 )
