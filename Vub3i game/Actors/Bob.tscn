@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Imgs/Bob-1.png(2).png" type="Texture" id=1]
 [ext_resource path="res://Actors/Actor.gd" type="Script" id=2]
-[ext_resource path="res://Audio/assets_audio_wing.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16.5, 30.5 )
@@ -30,6 +29,3 @@ margin_left = -20.0
 margin_top = -45.0
 margin_right = 20.0
 margin_bottom = -31.0
-
-[node name="wing" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )

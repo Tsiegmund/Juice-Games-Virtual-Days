@@ -54,6 +54,8 @@ margin_right = 15.0
 margin_bottom = -28.0
 rect_rotation = 0.310501
 size_flags_horizontal = 0
+align = 3
+valign = 3
 __meta__ = {
 "_edit_use_anchors_": true
 }

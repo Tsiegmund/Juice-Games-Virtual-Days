@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HoliznaCC0 - Dance Till You Die.mp3-7c1caeba5c0339b36b92b3c184e403bd.mp3str"
+
+[deps]
+
+source_file="res://Audio/Boss/HoliznaCC0 - Dance Till You Die.mp3"
+dest_files=[ "res://.import/HoliznaCC0 - Dance Till You Die.mp3-7c1caeba5c0339b36b92b3c184e403bd.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
