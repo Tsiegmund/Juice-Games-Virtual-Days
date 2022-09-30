@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Imgs/Level One BG.png" type="Texture" id=1]
 [ext_resource path="res://Actors/Bob.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Audio/Eggy Toast - 7.mp3.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Audio/World/Eggy Toast - 7.mp3.mp3" type="AudioStream" id=3]
 [ext_resource path="res://Actors/MVPEnemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Imgs/LV_1_Tile1_V3 (1).png" type="Texture" id=7]
 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Metre - Revolve.mp3.mp3-4664deb0b89355bab766a895138d64ac.mp3str"
+
+[deps]
+
+source_file="res://Audio/Boss/Metre - Revolve.mp3.mp3"
+dest_files=[ "res://.import/Metre - Revolve.mp3.mp3-4664deb0b89355bab766a895138d64ac.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
