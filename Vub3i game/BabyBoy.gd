@@ -35,8 +35,6 @@ func _ready():
 func _process(delta):
 	move_character()
 	detect_turn_around()
-	var label = get_node("Label")
-	label.text = str(health) + "/" + str(max_health)
 	move_and_slide(velocity, Vector2(0, -1))
 	
 	time += delta
